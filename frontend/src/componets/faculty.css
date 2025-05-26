@@ -1,0 +1,69 @@
+.faculty-container {
+  padding: 40px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* General Card Styles */
+.faculty-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 200px;
+  flex: 1;
+  max-width: 250px;
+}
+
+.faculty-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+}
+
+.faculty-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.faculty-card p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Row Styles */
+.faculty-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+}
+
+/* Single Row for HOD */
+.single-row {
+  justify-content: center;
+}
+
+/* Double Row for Lab Admin and Staff */
+.double-row {
+  gap: 30px;
+  flex-wrap: nowrap;
+}
+
+/* Multi Row for Professors */
+.multi-row {
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}

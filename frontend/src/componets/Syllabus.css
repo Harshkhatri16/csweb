@@ -1,0 +1,81 @@
+/* Syllabus.css */
+
+.syllabus-container {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.program-card {
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.program-title {
+    color: #000000;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+/* Add this to your Syllabus.css */
+.semester-accordion .accordion-button {
+    margin: 0 !important;
+    padding: 12px 15px !important;
+}
+
+.semester-accordion .accordion-item {
+    margin-bottom: 8px;
+    border: none;
+}
+
+.semester-accordion .accordion-button:not(.collapsed) {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.semester-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.semester-accordion .accordion-header button {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.semester-accordion .accordion-body {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.course-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.course-list li {
+    padding: 8px 12px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.pdf-button {
+    background-color: #fbbf24;
+    color: #111827;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.pdf-button:hover {
+    background-color: #f59e0b;
+    color: #ffffff;
+}

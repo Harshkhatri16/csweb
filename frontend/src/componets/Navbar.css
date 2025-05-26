@@ -1,0 +1,32 @@
+#logo{
+    width: 100px;
+    height: 50px;
+}
+
+body{
+    background-color: rgb(249, 246, 246);
+}
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #0056b3;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+  
+  /* Show underline on hover and when active */
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
