@@ -29,6 +29,11 @@
     opacity: 0.7;
 }
 
+/* Program Cards Section */
+.program-card-section {
+    /* No specific styles needed here, Bootstrap row/gaps handle this */
+}
+
 .program-card {
     background-color: #ffffff;
     border-radius: 15px;
