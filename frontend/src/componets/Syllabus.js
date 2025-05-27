@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, Container, Row, Col, Card, Table, Spinner, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { motion } from 'framer-motion'; // Assuming you might want animations later
 import './Syllabus.css'; // Assuming you have some custom CSS here
 
 const Syllabus = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
+
     // Define programs and their corresponding database names and number of semesters
     const programs = [
         { title: 'MSC (CA & IT) Integrated', dbName: 'ca_and_it', semesters: 10 },
@@ -58,11 +62,9 @@ const Syllabus = () => {
 
     // Handle accordion item click
     const handleAccordionSelect = (eventKey) => {
-        // eventKey will now be a string (the key of the item being opened)
-        // or null (if the currently open item is clicked to close it).
-        setActiveKey(eventKey); // Set the active key directly
+        setActiveKey(eventKey);
 
-        if (eventKey) { // Only proceed if an item is being opened (eventKey is not null)
+        if (eventKey) {
             const [programIndex, semIndex] = eventKey.split('-').map(Number);
             const program = programs[programIndex];
             const semTable = `sem${semIndex + 1}`;
@@ -72,21 +74,44 @@ const Syllabus = () => {
 
     // Placeholder for Syllabus PDF button click
     const handleSyllabusPdfClick = (programTitle, semNumber) => {
-        // In a real application, you would implement logic here to generate or fetch a PDF.
-        // This might involve another API call to your backend.
         alert(`Generating Syllabus PDF for ${programTitle}, Semester ${semNumber}... (Functionality to be implemented)`);
+        // In a real application, you might do:
+        // window.open(`/api/syllabus-pdf/${program.dbName}/${semTable}`, '_blank');
+    };
+
+    const handleGoHome = () => {
+        navigate('/'); // Navigate to the home page route
     };
 
     return (
-        <Container fluid="md" className="py-4" style={{ backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
+        <Container fluid="md" className="py-4 syllabus-page-container" style={{ backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
             <Row className="justify-content-center"> {/* Center the cards */}
+                 <motion.button
+                className="btn btn-primary back-to-home-btn"
+                style={{width:'100px'}}
+                onClick={handleGoHome}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+                {/* SVG for Home Icon (Feather Icons or similar) */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home" >
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                
+            </motion.button>
+                <Col xs={12}> {/* Added a full-width column for the main heading */}
+                    <h2 className="text-center mb-5 syllabus-main-heading">Syllabus</h2>
+                    
+                </Col>
+                
                 {programs.map((program, programIndex) => (
                     <Col md={5} key={programIndex} className="mb-4 d-flex"> {/* Use d-flex to make cards equal height */}
                         <Card className="shadow-lg border-0 bg-light flex-fill" style={{ backgroundColor: '#ffffff', borderRadius: '15px' }}>
                             <Card.Body>
                                 <Container className='ml-5'>
                                     <h4 className="text-center mb-3" style={{ fontWeight: 'bold' }}>{program.title}</h4>
-                                    {/* REMOVED alwaysOpen PROP to ensure eventKey is a string */}
                                     <Accordion activeKey={activeKey} onSelect={handleAccordionSelect} className="semester-accordion bg-light ml-5">
                                         {Array.from({ length: program.semesters }, (_, semIndex) => {
                                             const eventKey = `${programIndex}-${semIndex}`;
@@ -114,7 +139,6 @@ const Syllabus = () => {
                                                                         <tr>
                                                                             <th>Subject Name</th>
                                                                             <th>Subject Code</th>
-                                                                            {/* REMOVED: Last Updated column header */}
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -122,12 +146,10 @@ const Syllabus = () => {
                                                                             <tr key={itemIndex}>
                                                                                 <td>{item.SubjectName}</td>
                                                                                 <td>{item.SubjectCode}</td>
-                                                                                {/* REMOVED: Last Updated column data */}
                                                                             </tr>
                                                                         ))}
                                                                     </tbody>
                                                                 </Table>
-                                                                {/* NEW: Syllabus PDF Button */}
                                                                 <div className="d-flex justify-content-end mt-3">
                                                                     <button
                                                                         className="btn btn-info rounded-pill"
@@ -151,6 +173,9 @@ const Syllabus = () => {
                     </Col>
                 ))}
             </Row>
+
+  
+           
         </Container>
     );
 };

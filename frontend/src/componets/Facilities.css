@@ -1,0 +1,144 @@
+/* Facilities.css */
+
+#facilities-section {
+    padding: 50px 0;
+    background-color: rgb(249, 246, 246); /* Consistent background */
+    text-align: center;
+}
+
+#facilities-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#facilities-section .section-divider {
+    width: 80%;
+    max-width: 600px;
+    height: 2px;
+    background-color: #0056b3; /* Brand color */
+    border: none;
+    margin: 10px auto 40px auto;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+
+.facilities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+
+.facility-card {
+    background-color: #ffffff; /* White background */
+    border-radius: 0.75rem; /* Rounded corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 1.8rem; /* Internal padding */
+    text-align: left; /* Text alignment as seen in image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure equal height in a row */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to top */
+    width: 100%; /* Default to full width of column */
+}
+
+.facility-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+}
+
+.facility-card h3 {
+    font-size: 1.4rem; /* Title size */
+    font-weight: 600;
+    color: #0056b3; /* Brand color for titles */
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.facility-card p {
+    font-size: 0.95rem; /* Description size */
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Facilities.css (add these new rules) */
+
+.facility-card {
+    /* ... existing styles ... */
+    display: flex; /* Ensure flexbox for better alignment of icon, title, description */
+    flex-direction: column;
+    align-items: center; /* Center horizontally for icon and title */
+    text-align: center; /* Center text */
+}
+
+.facility-icon {
+    font-size: 3.5rem; /* Large icon size */
+    color: #0056b3; /* Brand color for icons */
+    margin-bottom: 1rem; /* Space below icon */
+    background-color: #e0f2f1; /* Light background for the icon */
+    padding: 15px; /* Padding around the icon */
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the icon background */
+    transition: transform 0.2s ease-in-out;
+}
+
+.facility-card:hover .facility-icon {
+    transform: scale(1.1); /* Slight grow effect on icon when card is hovered */
+}
+
+.facility-card h3 {
+    /* ... existing styles ... */
+    text-align: center; /* Ensure title is centered */
+}
+
+.facility-card p {
+    /* ... existing styles ... */
+    text-align: left; /* Keep description left-aligned for readability if needed */
+    /* Or if you want it centered as well: text-align: center; */
+}
+
+
+/* Responsive adjustments for icons */
+@media (max-width: 767.98px) {
+    .facility-icon {
+        font-size: 2.8rem; /* Smaller icons on small screens */
+        padding: 12px;
+    }
+}
+/* Responsive adjustments */
+@media (min-width: 768px) { /* Medium devices and up */
+    .facility-card-col {
+        flex: 0 0 auto;
+        width: 31%; /* Approximately 3 cards per row with gap */
+        max-width: 380px; /* Max width for individual card on larger screens */
+    }
+}
+
+@media (min-width: 992px) { /* Large devices and up */
+    .facility-card-col {
+        width: 31%; /* Maintain 3 cards per row */
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices */
+    #facilities-section h2 {
+        font-size: 2rem;
+    }
+    .facility-card {
+        padding: 1.5rem;
+    }
+    .facility-card h3 {
+        font-size: 1.2rem;
+    }
+    .facility-card p {
+        font-size: 0.9rem;
+    }
+}

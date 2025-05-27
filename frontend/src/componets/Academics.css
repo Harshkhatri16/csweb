@@ -1,149 +1,268 @@
-.container {
-  margin-top: 20px;
-}
-
-.courses {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.courses h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.courses ul {
-  list-style: none;
-  padding: 0;
-}
-
-.courses ul li {
-  margin-bottom: 10px;
-}
-
-.courses ul li a {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.courses ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.modal-content {
-  background-color: #ffffff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 900px;
-  position: relative;
-  overflow-y: auto;
-  max-height: 80vh;
-}
-
-.modal-content h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.modal-content h3 {
-  margin-bottom: 10px;
-  font-size: 22px;
-  text-align: center;
-}
-
-.modal-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 15px;
-}
-
-.modal-content th,
-.modal-content td {
-  border: 1px solid #000;
-  padding: 8px;
-  text-align: left;
-}
-
-.modal-content th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.close-button {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 24px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: #333;
-}
-
-.pics {
-  width: 50%;
-  padding-left: 20px;
-}
-
-.pics h2 {
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 600;
-}
-
-.swiper-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #333;
-}
-
-.swiper-pagination-bullet {
-  background-color: #333;
-}
-
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
 /* Academics.css */
-.message {
+
+/* Main Full-Width Section Wrapper */
+.academics-full-width-section {
+    width: 100%; /* Ensure it spans full viewport width */
+    overflow-x: hidden; /* Prevent horizontal scroll from elements poking out */
+    background-color: rgb(249, 246, 246); /* Consistent background */
+}
+
+/* General Section Styling */
+/* These headings and HRs are now within a .container div, so they will be centered */
+.academics-full-width-section h2 { /* Targeting h2 within the full-width section */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center; /* Ensure titles are centered */
+}
+
+/* Horizontal Rule (HR) Styling */
+.academics-full-width-section .section-divider {
+    width: 80%;
+    max-width: 600px;
+    height: 2px;
+    background-color: #0056b3;
+    border: none;
+    margin: 10px auto 40px auto;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+
+/* Program Cards Section */
+.program-card-section {
+    /* No specific styles needed here, Bootstrap row/gaps handle this */
+}
+
+.program-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    text-align: center; /* Center content within cards */
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.program-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #0056b3;
+}
+
+.program-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+    white-space: pre-wrap; /* Ensure newlines in description are respected */
+}
+
+.program-card .program-description-line {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.program-card .btn-explore {
+    border-radius: 30px;
+    border: 2px solid #0056b3;
+    color: #0056b3;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    align-self: center; /* Center the button within the card */
+}
+
+.program-card .btn-explore:hover {
+    background-color: #0056b3;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+/* Events Section - Full Width Specifics */
+.event-full-width-wrapper {
+    width: 100%;
+    padding-top: 50px; /* Space between Faculty and Events */
+    padding-bottom: 50px;
+    background-color: #f2f2f2; /* Slightly different background for events section */
+}
+
+.event-full-width-wrapper .row {
+    margin-left: 0; /* Remove default Bootstrap row margins */
+    margin-right: 0;
+    width: 100%; /* Ensure the row takes full width */
+}
+
+.event-messages-col,
+.event-swiper-col {
+    padding-left: 0; /* Remove default Bootstrap column padding */
+    padding-right: 0;
+}
+
+.messages-box {
+    background-color: #e0f2f1;
+    border-radius: 0; /* Remove border-radius for full-width look */
+    box-shadow: none; /* Remove box-shadow to blend better */
+    padding: 2rem 3rem; /* Add horizontal padding back */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px; /* Adjusted height for better visual balance with image */
+    height: 100%; /* Ensure it fills its column height */
+    text-align: left; /* Keep message text aligned to left */
+}
+
+.messages-box h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    color: #2e4a68;
+    line-height: 1.4;
+    text-align: center; /* Center the message headings */
+}
+
+/* Swiper Carousel Styling - Full Width Specifics */
+.academics-swiper-container {
+    width: 100%; /* Important: Make Swiper take full width of its parent column */
+    height: 400px; /* Fixed height for the swiper container */
+}
+
+.academics-swiper-container .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.academics-swiper-container .swiper-slide img {
+    /* This style will be overridden by .swiper-image-background */
+    display: none; /* Hide the actual img tag as we're using background-image */
+}
+
+.academics-swiper-container .swiper-image-background {
+    width: 100%;
+    height: 400px; /* Match swiper container height */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    border-radius: 0; /* Remove border-radius for full-width look */
+    box-shadow: none; /* Remove box-shadow for blending */
+}
+
+
+.academics-swiper-container .swiper-button-next,
+.academics-swiper-container .swiper-button-prev {
+    color: #0056b3 !important;
+    font-size: 2.2rem !important; /* Slightly larger arrows */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure they are above the image */
+}
+
+.academics-swiper-container .swiper-button-prev {
+    left: 10px; /* Distance from left edge */
+}
+
+.academics-swiper-container .swiper-button-next {
+    right: 10px; /* Distance from right edge */
+}
+
+
+.academics-swiper-container .swiper-pagination-bullet {
+    background-color: #ccc !important;
+    opacity: 1 !important;
+}
+
+.academics-swiper-container .swiper-pagination-bullet-active {
+    background-color: #0056b3 !important;
+}
+ h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     color: #333;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+hr {
+    width: 80%;
+    max-width: 600px; /* Limit width of HR */
+    height: 2px; /* Make it a bit thicker */
+    background-color: #0056b3; /* Use a brand color for the line */
+    border: none;
+    margin: 10px auto 40px auto; /* Adjust margin for spacing */
+    border-radius: 5px;
+    opacity: 0.7; /* Slightly transparent */
 }
 
-.swiper-slide img {
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Medium and small devices */
+    .program-card {
+        margin-bottom: 1.5rem; /* Add more space between cards on smaller screens */
+    }
+    .messages-box {
+        margin-bottom: 0; /* No margin-bottom on md-up, handled by row gap */
+        border-radius: 15px 15px 0 0; /* Rounded top corners on smaller screens */
+        min-height: auto; /* Allow height to adjust */
+    }
+    .event-full-width-wrapper .row {
+        flex-direction: column; /* Stack columns vertically */
+    }
+    .event-messages-col,
+    .event-swiper-col {
+        width: 100%; /* Take full width on small screens */
+    }
+    .messages-box {
+        margin-bottom: 1.5rem; /* Space between message box and swiper on small screens */
+        padding: 2rem;
+    }
+    .academics-swiper-container,
+    .academics-swiper-container .swiper-image-background {
+        height: 300px; /* Adjust height for smaller screens */
+        border-radius: 0 0 15px 15px; /* Rounded bottom corners on smaller screens */
+    }
 }
 
+@media (max-width: 767.98px) { /* Small devices */
+    .academics-full-width-section h2, #event-section-container h2 {
+        font-size: 2rem;
+    }
+    .program-card h4 {
+        font-size: 1.3rem;
+    }
+    .program-card p {
+        font-size: 0.9rem;
+    }
+    .messages-box h3 {
+        font-size: 1.5rem;
+    }
+    .academics-swiper-container,
+    .academics-swiper-container .swiper-image-background {
+        height: 250px; /* Further adjust height for very small screens */
+    }
+}
+
+@media (min-width: 992px) { /* Large devices and up */
+    .event-messages-col {
+        /* On large screens, messages-box takes half width */
+        padding-right: 1rem; /* Add some padding between message box and swiper */
+    }
+    .event-swiper-col {
+        padding-left: 1rem; /* Add some padding between message box and swiper */
+    }
+    .messages-box {
+        border-radius: 15px 0 0 15px; /* Rounded left corners */
+    }
+    .academics-swiper-container,
+    .academics-swiper-container .swiper-image-background {
+        border-radius: 0 15px 15px 0; /* Rounded right corners */
+    }
+}
