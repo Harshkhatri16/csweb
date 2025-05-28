@@ -1,32 +1,96 @@
-#logo{
+#logo {
     width: 100px;
     height: 50px;
 }
 
-body{
+body {
     background-color: rgb(249, 246, 246);
 }
+
 .nav-link {
     position: relative;
     display: inline-block;
     padding-bottom: 4px;
     transition: color 0.3s ease;
-  }
-  
-  .nav-link::after {
+}
+
+.nav-link::after {
     content: '';
     position: absolute;
-    width: 0%;
+    width: 0%; /* Default: no underline */
     height: 2px;
     background-color: #0056b3;
     left: 0;
     bottom: 0;
     transition: width 0.3s ease;
-  }
-  
-  /* Show underline on hover and when active */
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    width: 100%;
-  }
-  
+}
+
+/* Show underline on hover and when active for general nav-links */
+/* IMPORTANT: This rule targets nav-links that are NOT dropdown-toggles */
+.nav-link:hover::after,
+.nav-link.active:not(.dropdown-toggle)::after { /* ADDED :not(.dropdown-toggle) */
+    width: 100%; /* Show underline */
+}
+
+/*
+   Specific rule to ensure the dropdown-toggle itself does NOT get an underline when active.
+   Bootstrap adds 'show' class to the parent .dropdown.
+*/
+.nav-item.dropdown.show .nav-link.dropdown-toggle::after {
+    width: 0%; /* Explicitly remove underline when dropdown is open */
+}
+
+
+/* Ensure dropdown items also get the underline effect when active */
+.dropdown-item {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    width: 0%; /* Default: no underline */
+    height: 2px;
+    background-color: #0056b3;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+/* Apply active style to dropdown-item when its route is active */
+.dropdown-item.active {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.dropdown-item.active::after {
+    width: 100%; /* Show underline when active */
+}
+
+/* Ensure hover works for dropdown items */
+.dropdown-item:hover::after {
+    width: 100%; /* Show underline on hover for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #0056b3;
+}
+
+/* Custom styles for the dropdown menu itself if needed */
+.navbar-nav .dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+}
+
+.navbar-nav .dropdown-menu li:last-child .dropdown-item {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.navbar-nav .dropdown-menu li:first-child .dropdown-item {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}

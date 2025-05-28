@@ -11,10 +11,10 @@ import Facilities from './componets/facilitiesData ';
 function App() {
   return (
     <Router basename="/DOCS"> 
-      
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/facilitiesData" element={<Facilities />} />
+       
           <Route path="/Courses" element={<Courses />} />
         <Route path="/syllabus" element={<Syllabus />} />
       </Routes>

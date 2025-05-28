@@ -104,7 +104,7 @@ const Facilities = () => {
   };
 
   return (
-    <div id="facilities-section" className="container my-5">
+    <div id="facilities-section" className="container my-5 bg-light">
       <h2 className='text-center mb-4'>Our Facilities</h2>
       <hr className="section-divider" />
 

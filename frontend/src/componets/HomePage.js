@@ -4,15 +4,15 @@ import logo2 from '../images/logo2.png';
 import home from '../images/home.png';
 import './Home.css';
 import AboutUs from './AboutUs';
-import Academics from './Academics'; // Import Academics to render it here
-// Make sure these are NOT imported if they are separate pages and not rendered directly here
-// import Facilities from './FacilitiesData';
-// import Contact from './Contact';
+import Academics from './Academics';
+import Faculty from './Faculty'; // Assuming Faculty component path is correct
+import Facilities from './facilitiesData '; // Assuming Facilities component path is correct
+import Contact from './Contact'; // Assuming Contact component path is correct
 
-import CustomNavbar from './Navbar';
-import { motion } from 'framer-motion';
-import Contact from './Contact';
-import Facilities from './facilitiesData ';
+import { motion } from 'framer-motion'; // Correctly imported
+import Navbar from './Navbar';
+
+// Removed unused import: import Navbar from './Navbar';
 
 export default function HomePage() {
     const [showScrollButton, setShowScrollButton] = useState(false);
@@ -26,12 +26,12 @@ export default function HomePage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Effect to scroll to section based on URL hash (now for AboutUs and Academics)
+    // Effect to scroll to section based on URL hash
     useEffect(() => {
         if (location.hash) {
             const id = location.hash.substring(1); // Remove '#' from the hash
             // Check if the ID matches a section you want to scroll to within HomePage
-            if (id === 'aboutus-section' || id === 'academics-section') {
+            if (id === 'aboutus-section' || id === 'academics-section' || id === 'faculty-section' || id === 'facilities-section' || id === 'contact-section') {
                 const element = document.getElementById(id);
                 if (element) {
                     setTimeout(() => {
@@ -47,13 +47,15 @@ export default function HomePage() {
     };
 
     return (
+        <>
+        <Navbar/>
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             className="home-wrapper"
         >
-            <CustomNavbar />
+            {/* Navbar is rendered in App.js, so it's not here */}
 
             {/* Hero Section */}
             <div className="d-flex flex-column flex-lg-row justify-content-center hero-section text-center bg-light" style={{ 'paddingTop': '0px' }}>
@@ -106,7 +108,7 @@ export default function HomePage() {
                 </motion.div>
             </div>
 
-            {/* AboutUs Section - Remains within HomePage for in-page scrolling */}
+            {/* AboutUs Section */}
             <motion.div
                 id="aboutus-section"
                 initial={{ opacity: 0 }}
@@ -115,7 +117,9 @@ export default function HomePage() {
             >
                 <AboutUs />
             </motion.div>
-             <motion.div
+            
+            {/* Facilities Section */}
+            <motion.div
                 id="facilities-section"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -124,7 +128,7 @@ export default function HomePage() {
                 <Facilities />
             </motion.div>
 
-            {/* Academics Section - NOW rendered within HomePage for in-page scrolling */}
+            {/* Academics Section */}
             <motion.div
                 id="academics-section"
                 initial={{ opacity: 0 }}
@@ -134,11 +138,19 @@ export default function HomePage() {
                 <Academics />
             </motion.div>
 
-           
-
-            {/* Contact is NOT directly rendered here. It's a separate page. */}
+            {/* Faculties Section */}
             <motion.div
-                id="Contact-section"
+                id="Faculties-section"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+            >
+                <Faculty />
+            </motion.div>
+            
+            {/* Contact Section */}
+            <motion.div
+                id="contact-section"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
@@ -158,5 +170,6 @@ export default function HomePage() {
                 </motion.button>
             )}
         </motion.div>
+          </>
     );
 }

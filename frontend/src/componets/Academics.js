@@ -109,10 +109,7 @@ function Academics() {
                 ))}
             </motion.div>
 
-            {/* Faculty Section (assuming Faculty component handles its own styling and animation) */}
-            <h2 className='text-center mt-5 mb-4'>Members of The Faculty</h2> {/* Added margin-top */}
-            <hr className="section-divider" />
-            <Faculty /> {/* Renders the Faculty component */}
+          
 
             {/* Image Swiper Section (Events) */}
             <div id="event-section-container" className="container my-5"> {/* New wrapper for event section */}
